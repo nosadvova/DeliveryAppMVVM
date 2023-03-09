@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>329589826523-jais9k6881tg9k7mjstgdq9qort6n643.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.329589826523-jais9k6881tg9k7mjstgdq9qort6n643</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDsGyLcj7sf1NpitXIr9dXIg74Ez_IoHCk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>329589826523</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>nosadvova.DeliveryAppMVVM</string>
+	<key>PROJECT_ID</key>
+	<string>deliveryappmvvm-b573e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>deliveryappmvvm-b573e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:329589826523:ios:2dff08a1a0d78439837dfe</string>
+	<key>DATABASE_URL</key>
+	<string>https://deliveryappmvvm-b573e-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
