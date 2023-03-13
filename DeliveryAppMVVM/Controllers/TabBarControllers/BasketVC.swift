@@ -17,9 +17,7 @@ class BasketVC: UITableViewController {
         super.viewDidLoad()
         
     }
-    
-
-    
+ 
     
 }
 

@@ -5,7 +5,7 @@ import SideMenu
 class MarketVC: UITableViewController, UINavigationControllerDelegate {
     
     //MARK: - Properties
-    
+
     lazy var hamburgerButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "menuIcon"), for: .normal)
@@ -28,7 +28,7 @@ class MarketVC: UITableViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         configureUI()
     }
     
@@ -41,7 +41,6 @@ class MarketVC: UITableViewController, UINavigationControllerDelegate {
     
     @objc private func addTapped() {
         present(AddProductVC(), animated: true)
-        
     }
     
     //MARK: - Functionality
@@ -54,7 +53,6 @@ class MarketVC: UITableViewController, UINavigationControllerDelegate {
         menu.delegate = self
         menu.leftSide = true
         menu.navigationBar.isHidden = true
-        
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: hamburgerButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addProduct)

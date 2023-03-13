@@ -9,6 +9,7 @@ struct ProductCredentials {
     let price: Double
     let description: String?
     let image: UIImage
+    let category: String
 }
 
 struct ProductService {
@@ -18,6 +19,7 @@ struct ProductService {
         let name = product.name
         let price = product.price
         let description = product.description
+        let category = product.category
         
         guard let imageData = product.image.jpegData(compressionQuality: 0.3) else { return }
         
@@ -31,10 +33,23 @@ struct ProductService {
                 let values = ["name": name,
                               "price": price,
                               "description": description ?? "",
-                              "image": productImageUrl]
+                              "image": productImageUrl,
+                              "category": category]
                 
                 DB_REF_PRODUCTS.childByAutoId().updateChildValues(values, withCompletionBlock: completion)
             }
+        }
+    }
+    
+    func fetchCategories(completion: @escaping ([Category]) -> ()) {
+        var categories = [Category]()
+        DB_REF_CATEGORIES.observe(.childAdded) { snapshot in
+            let id = snapshot.key
+            guard let values = snapshot.value as? [String: AnyObject] else { return }
+            
+            let category = Category(id: id, dictionary: values)
+            categories.append(category)
+            completion(categories)
         }
     }
 }

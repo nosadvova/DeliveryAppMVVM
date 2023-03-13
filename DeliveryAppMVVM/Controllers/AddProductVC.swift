@@ -42,6 +42,12 @@ class AddProductVC: UIViewController {
         return username
     }()
     
+    private lazy var categoryContainerView: UIView = {
+        let category = Utilities().inputContainerView(textField: categoryTextField)
+        
+        return category
+    }()
+    
     private lazy var nameTextField: UITextField = {
         let textField = Utilities().textFieldSettings("Name")
         
@@ -56,6 +62,12 @@ class AddProductVC: UIViewController {
     
     private lazy var descriptionTextField: UITextField = {
         let textField = Utilities().textFieldSettings("Description")
+        
+        return textField
+    }()
+    
+    private lazy var categoryTextField: UITextField = {
+        let textField = Utilities().textFieldSettings("Category")
         
         return textField
     }()
@@ -83,8 +95,9 @@ class AddProductVC: UIViewController {
         guard let name = nameTextField.text else {return}
         guard let price = priceTextField.text else {return}
         guard let description = descriptionTextField.text else {return}
+        guard let category = categoryTextField.text else {return}
         
-        let credentials = ProductCredentials(name: name, price: Double(price) ?? 0, description: description, image: productImage)
+        let credentials = ProductCredentials(name: name, price: Double(price) ?? 0, description: description, image: productImage, category: category)
 
         ProductService.shared.addProduct(product: credentials) { error, reference in
             
@@ -122,7 +135,8 @@ class AddProductVC: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [emailContainerView,
                                                        passwordContainerView,
                                                        fullnameContainerView,
-                                                       usernameContainerView])
+                                                       usernameContainerView,
+                                                       categoryContainerView])
         view.addSubview(stackView)
         stackView.anchor(top: addPhoto.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 10, paddingRight: 10)
         stackView.axis = .vertical

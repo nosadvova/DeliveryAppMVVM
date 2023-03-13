@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		673E8AF829B3546900C4AEEF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E8AF729B3546900C4AEEF /* Utilities.swift */; };
 		673E8AFA29B354E700C4AEEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E8AF929B354E700C4AEEF /* Constants.swift */; };
+		676D4B6429BB519B00411B39 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676D4B6329BB519B00411B39 /* Category.swift */; };
+		676D4B6729BB576A00411B39 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676D4B6629BB576A00411B39 /* CategoryCell.swift */; };
 		6789890129B8C1B800F99D0C /* AddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6789890029B8C1B800F99D0C /* AddProductVC.swift */; };
 		6789890329B8CB5D00F99D0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6789890229B8CB5D00F99D0C /* GoogleService-Info.plist */; };
 		67A5C9F129B78C0E002E659D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5C9F029B78C0E002E659D /* Product.swift */; };
@@ -31,6 +33,8 @@
 		658FCD6B51A2A1C097100EF8 /* Pods_DeliveryAppMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryAppMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		673E8AF729B3546900C4AEEF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		673E8AF929B354E700C4AEEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		676D4B6329BB519B00411B39 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		676D4B6629BB576A00411B39 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		6789890029B8C1B800F99D0C /* AddProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVC.swift; sourceTree = "<group>"; };
 		6789890229B8CB5D00F99D0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67A5C9F029B78C0E002E659D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -81,6 +85,14 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		676D4B6529BB574500411B39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				676D4B6629BB576A00411B39 /* CategoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		67B5162E29B22DCE00D8CB2C /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				67F416C929ACF15300F12191 /* Models */,
+				676D4B6529BB574500411B39 /* View */,
 				67F416BF29ACD19D00F12191 /* Controllers */,
 				67B5163329B23E4500D8CB2C /* Utility */,
 				67B5162E29B22DCE00D8CB2C /* API */,
@@ -160,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				67A5C9F029B78C0E002E659D /* Product.swift */,
+				676D4B6329BB519B00411B39 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +313,8 @@
 				67F416C829ACE02600F12191 /* MenuListVC.swift in Sources */,
 				67F416C429ACD7CC00F12191 /* MarketVC.swift in Sources */,
 				67F416AE29ACD16300F12191 /* SceneDelegate.swift in Sources */,
+				676D4B6729BB576A00411B39 /* CategoryCell.swift in Sources */,
+				676D4B6429BB519B00411B39 /* Category.swift in Sources */,
 				67B5163529B23E5500D8CB2C /* Extensions.swift in Sources */,
 				673E8AF829B3546900C4AEEF /* Utilities.swift in Sources */,
 				67B5163029B22E1200D8CB2C /* AuthService.swift in Sources */,

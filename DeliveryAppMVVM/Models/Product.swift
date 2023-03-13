@@ -8,6 +8,7 @@ struct Product {
     let price: Double
     var productImageURL: URL?
     var description: String?
+    let category: String
     let id: String
     
     var isAdded = false
@@ -15,6 +16,7 @@ struct Product {
     init(id: String, dictionary: [String: AnyObject]) {
         self.name = dictionary["name"] as? String ?? ""
         self.price = dictionary["price"] as? Double ?? 0
+        self.category = dictionary["category"] as? String ?? ""
         self.id = id
         
         if let description = dictionary["description"] as? String {
