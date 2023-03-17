@@ -8,7 +8,7 @@ struct Product {
     let price: Double
     var productImageURL: URL?
     var description: String?
-    let category: String
+    var category: String
     let id: String
     
     var isAdded = false

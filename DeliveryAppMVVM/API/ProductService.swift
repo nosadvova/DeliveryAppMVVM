@@ -52,4 +52,18 @@ struct ProductService {
             completion(categories)
         }
     }
+    
+    func fetchProducts(completion: @escaping ([Product]) -> ()) {
+        var products = [Product]()
+        
+        DB_REF_PRODUCTS.observe(.childAdded) { snapshot in
+            // Make sorting here using .orderByChild("category").equalTo(category.name)
+            let id = snapshot.key
+            guard let values = snapshot.value as? [String: AnyObject] else { return }
+
+            let product = Product(id: id, dictionary: values)
+            products.append(product)
+            completion(products)
+        }
+    }
 }

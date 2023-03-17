@@ -9,9 +9,15 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+protocol MenuListDelegate: AnyObject {
+    func selectedCategory(category: Category)
+}
+
 class MenuListVC: UICollectionViewController {
     
     //MARK: - Properties
+    
+    weak var delegate: MenuListDelegate?
     
     private var categories = [Category]() {
         didSet{
@@ -36,7 +42,6 @@ class MenuListVC: UICollectionViewController {
             self.categories = category
         }
     }
-    
 }
 
 // MARK: UICollectionViewDataSource
@@ -52,6 +57,12 @@ extension MenuListVC: UICollectionViewDelegateFlowLayout{
         
         cell.category = categories[indexPath.row]
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = self.categories[indexPath.row]
+        self.delegate?.selectedCategory(category: category)
+        dismiss(animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

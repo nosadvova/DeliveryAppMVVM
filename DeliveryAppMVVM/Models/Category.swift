@@ -8,7 +8,7 @@
 import Foundation
 
 struct Category {
-    let id: String
+    var id: String
     var name: String
     var icon: URL?
     

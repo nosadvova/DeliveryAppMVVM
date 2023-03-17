@@ -40,16 +40,6 @@ class MainTabBarVC: UITabBarController {
         } else {
             configureControllers()
         }
-        
-    }
-    
-    //MARK: - Functionality
-    
-     func configureControllers() {
-        let marketVC = templateNavController(image: UIImage(named: "market")!, controller: MarketVC(), title: "Market")
-        let basketVC = templateNavController(image: UIImage(named: "basket")!, controller: BasketVC(), title: "Basket")
-        
-        viewControllers = [marketVC, basketVC]
     }
     
     func logOut() {
@@ -59,6 +49,15 @@ class MainTabBarVC: UITabBarController {
         } catch {
             print("logOut() error")
         }
+    }
+    
+    //MARK: - Functionality
+    
+     func configureControllers() {
+        let marketVC = templateNavController(image: UIImage(named: "market")!, controller: MarketVC(), title: "Market")
+        let basketVC = templateNavController(image: UIImage(named: "basket")!, controller: BasketVC(), title: "Basket")
+        
+        viewControllers = [marketVC, basketVC]
     }
     
     private func templateNavController(image: UIImage, controller: UIViewController, title: String) -> UINavigationController {
