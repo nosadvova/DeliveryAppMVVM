@@ -20,7 +20,7 @@ class ProductCell: UITableViewCell {
     
     private let productImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
         image.clipsToBounds = true
         image.setDimensions(width: 125, height: 60)
         
@@ -92,7 +92,7 @@ class ProductCell: UITableViewCell {
         guard let product = product else { return }
         let viewModel = ProductViewModel(product: product)
         
-        productImage.sd_setImage(with: viewModel.productImageURL)
+        productImage.sd_setImage(with: viewModel.productImageURL, placeholderImage: UIImage(named: "placeholder"))
         nameLabel.text = viewModel.nameText
         priceLabel.text = viewModel.priceText
     }

@@ -10,10 +10,11 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 protocol MenuListDelegate: AnyObject {
-    func selectedCategory(category: Category)
+    func didSelectCategory(selectedCategory: String)
 }
 
 class MenuListVC: UICollectionViewController {
+    
     
     //MARK: - Properties
     
@@ -24,12 +25,12 @@ class MenuListVC: UICollectionViewController {
             collectionView.reloadData()
         }
     }
-    
+        
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         fetchCategories()
 
         self.collectionView!.register(CategoryCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -46,7 +47,7 @@ class MenuListVC: UICollectionViewController {
 
 // MARK: UICollectionViewDataSource
 
-extension MenuListVC: UICollectionViewDelegateFlowLayout{
+extension MenuListVC {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -60,17 +61,23 @@ extension MenuListVC: UICollectionViewDelegateFlowLayout{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = self.categories[indexPath.row]
-        self.delegate?.selectedCategory(category: category)
-        dismiss(animated: true)
+        let category = categories[indexPath.row].id
+        self.delegate?.didSelectCategory(selectedCategory: category)
     }
-    
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension MenuListVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let leftAndRightPaddings: CGFloat = 25
         let numberOfItemsPerRow: CGFloat = 3
-    
+
         let parameters = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
         return CGSize(width: parameters, height: parameters)
     }
 }
+
+
+

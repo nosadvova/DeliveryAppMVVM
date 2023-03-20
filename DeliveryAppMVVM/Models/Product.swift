@@ -23,7 +23,7 @@ struct Product {
             self.description = description
         }
         
-        if let productImageURL = dictionary["productImageURL"] as? String {
+        if let productImageURL = dictionary["image"] as? String {
             guard let url = URL(string: productImageURL) else {return}
             self.productImageURL = url
         }

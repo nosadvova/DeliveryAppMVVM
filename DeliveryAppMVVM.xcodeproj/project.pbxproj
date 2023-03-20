@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6702E0BA29C32EB9000A3342 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6702E0B929C32EB9000A3342 /* ProductViewModel.swift */; };
+		672EDED729C71DA2001ED1FD /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672EDED629C71DA2001ED1FD /* ProductDetailsVC.swift */; };
 		673E8AF829B3546900C4AEEF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E8AF729B3546900C4AEEF /* Utilities.swift */; };
 		673E8AFA29B354E700C4AEEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673E8AF929B354E700C4AEEF /* Constants.swift */; };
 		676D4B6429BB519B00411B39 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676D4B6329BB519B00411B39 /* Category.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		658FCD6B51A2A1C097100EF8 /* Pods_DeliveryAppMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryAppMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6702E0B929C32EB9000A3342 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		672EDED629C71DA2001ED1FD /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		673E8AF729B3546900C4AEEF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		673E8AF929B354E700C4AEEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		676D4B6329BB519B00411B39 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				67F416C229ACD79E00F12191 /* TabBarControllers */,
 				67F416C729ACE02600F12191 /* MenuListVC.swift */,
 				6789890029B8C1B800F99D0C /* AddProductVC.swift */,
+				672EDED629C71DA2001ED1FD /* ProductDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				673E8AFA29B354E700C4AEEF /* Constants.swift in Sources */,
 				67F416C629ACD8C900F12191 /* BasketVC.swift in Sources */,
 				67B5163229B2337A00D8CB2C /* NumberVC.swift in Sources */,
+				672EDED729C71DA2001ED1FD /* ProductDetailsVC.swift in Sources */,
 				67F416C129ACD1D200F12191 /* MainTabBarVC.swift in Sources */,
 				67A5C9F129B78C0E002E659D /* Product.swift in Sources */,
 				6789890129B8C1B800F99D0C /* AddProductVC.swift in Sources */,
