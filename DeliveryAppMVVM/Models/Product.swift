@@ -11,8 +11,9 @@ struct Product {
     var category: String
     let id: String
     
-    var isAdded = false
-        
+    var isAdded: Bool = false
+    var count: Int = 1
+            
     init(id: String, dictionary: [String: AnyObject]) {
         self.name = dictionary["name"] as? String ?? ""
         self.price = dictionary["price"] as? Double ?? 0

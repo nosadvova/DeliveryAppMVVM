@@ -7,7 +7,7 @@ class ProductDetailsVC: UIViewController {
     
     var product: Product {
         didSet {
-            configureUI()
+            configureData()
         }
     }
     
@@ -52,36 +52,21 @@ class ProductDetailsVC: UIViewController {
         return label
     }()
     
-    private lazy var addToCartButton: UIButton = {
-        let button = UIButton()
-        button.setDimensions(width: 90, height: 40)
-        button.layer.cornerRadius = 40 / 2
-        
-        button.setTitle("Add to cart", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.backgroundColor = .black
-        
-        button.addTarget(self, action: #selector(addToCartTapped), for: .touchUpInside)
-        
-        return button
-    }()
+    private lazy var addToCartView = AddToCartView(product: product, width: 110, height: 40)
+    
+
     //MARK: - Lifecycle
     
     init(product: Product) {
         self.product = product
         super.init(nibName: nil, bundle: nil)
+        configureUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureUI()
-    }
     
     //MARK: - Selectors
     
@@ -89,15 +74,11 @@ class ProductDetailsVC: UIViewController {
         dismiss(animated: true)
     }
     
-    @objc private func addToCartTapped() {
-        print("Tapped")
-    }
-    
     //MARK: - Functionality
     
     private func configureUI() {
         view.backgroundColor = .systemGray6
-        
+                
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backTapped))
         navigationItem.leftBarButtonItem = backButton
         
@@ -106,23 +87,28 @@ class ProductDetailsVC: UIViewController {
         
         let labelsStack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel])
         view.addSubview(labelsStack)
-        labelsStack.anchor(top: productImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 45, paddingLeft: 15)
+        labelsStack.anchor(top: productImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 45, paddingLeft: 15, paddingRight: 20)
         labelsStack.axis = .vertical
         labelsStack.spacing = 50
         
         let priceStack = UIStackView(arrangedSubviews: [priceLabel, priceInfo])
         view.addSubview(priceStack)
-        priceStack.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingLeft: 15, paddingBottom: 34)
+        priceStack.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingLeft: 15, paddingBottom: 55)
         priceStack.axis = .vertical
         priceStack.spacing = 8
         
-        view.addSubview(addToCartButton)
-        addToCartButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 45, paddingRight: 35)
+        configureData()
         
+        view.addSubview(addToCartView)
+        addToCartView.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 60, paddingRight: 35)
+    }
+    
+    private func configureData() {
+        let viewModel = ProductViewModel(product: product)
         
-        productImage.sd_setImage(with: product.productImageURL)
-        nameLabel.text = product.name
-        descriptionLabel.text = product.description
-        priceInfo.text = "\(product.price) uah"
+        productImage.sd_setImage(with: viewModel.productImageURL, placeholderImage: UIImage(named: "placeholder"))
+        nameLabel.text = viewModel.nameText
+        descriptionLabel.text = viewModel.description
+        priceInfo.text = viewModel.priceText
     }
 }

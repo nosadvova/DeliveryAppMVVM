@@ -16,6 +16,10 @@ struct ProductViewModel {
     var priceText: String {
         return String(product.price) + " uah"
     }
+        
+    var description: String? {
+        return product.description
+    }
     
     init(product: Product) {
         self.product = product

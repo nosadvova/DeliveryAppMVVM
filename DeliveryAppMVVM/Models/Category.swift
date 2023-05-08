@@ -11,9 +11,7 @@ struct Category {
     var id: String
     var name: String
     var icon: URL?
-    
-    var isSelected = false
-    
+        
     init(id: String, dictionary: [String: AnyObject]) {
         self.id = id
         self.name = dictionary["name"] as? String ?? ""

@@ -20,8 +20,8 @@ class MarketVC: UITableViewController, UINavigationControllerDelegate {
             fetchProducts(categoryID: selectedCategory)
         }
     }
-    
-    lazy var hamburgerButton: UIButton = {
+        
+    private lazy var hamburgerButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "menuIcon"), for: .normal)
         button.addTarget(self, action: #selector(hamburgerTapped), for: .touchUpInside)
@@ -29,7 +29,7 @@ class MarketVC: UITableViewController, UINavigationControllerDelegate {
         return button
     }()
     
-    lazy var addProduct: UIButton = {
+    private lazy var addProduct: UIButton = {
        let button = UIButton()
        button.setImage(UIImage(systemName: "plus"), for: .normal)
        button.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
@@ -103,13 +103,16 @@ extension MarketVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ProductCell
         
-        cell.product = products[indexPath.row]
+        let product = products[indexPath.row]
+        
+        cell.product = product        
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]
+        
         let vc = ProductDetailsVC(product: product)
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
